@@ -129,16 +129,26 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    if (self) {
+        [self initialize];
+    }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initialize];
+    }
     return self;
 }
 
-- (void)initializeCalendarUI
+- (void)setCollectionViewBackgroundView:(UIView *)collectionViewBackgroundView {
+    self.collectionView.backgroundView = collectionViewBackgroundView;
+}
+
+- (void)initialize
 {   
     _appearance = [[FSCalendarAppearance alloc] init];
     _appearance.calendar = self;
@@ -209,10 +219,6 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.allowsMultipleSelection = NO;
     collectionView.clipsToBounds = YES;
-    
-    if (_collectionViewBackgroundView) {
-        collectionView.backgroundView = _collectionViewBackgroundView;
-    }
     
     [collectionView registerClass:[FSCalendarCell class] forCellWithReuseIdentifier:FSCalendarDefaultCellReuseIdentifier];
     [collectionView registerClass:[FSCalendarBlankCell class] forCellWithReuseIdentifier:FSCalendarBlankCellReuseIdentifier];
