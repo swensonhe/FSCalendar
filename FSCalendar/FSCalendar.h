@@ -343,6 +343,11 @@ IB_DESIGNABLE
 @property (strong, nonatomic) FSCalendarWeekdayView *calendarWeekdayView;
 
 /**
+ The collection view background view
+ */
+@property (strong, nonatomic) UIView *collectionViewBackgroundView;
+
+/**
  The header view of the calendar
  */
 @property (strong, nonatomic) FSCalendarHeaderView *calendarHeaderView;

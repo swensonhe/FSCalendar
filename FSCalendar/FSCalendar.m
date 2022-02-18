@@ -215,6 +215,11 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.allowsMultipleSelection = NO;
     collectionView.clipsToBounds = YES;
+    
+    if (_collectionViewBackgroundView) {
+        collectionView.backgroundView = _collectionViewBackgroundView;
+    }
+    
     [collectionView registerClass:[FSCalendarCell class] forCellWithReuseIdentifier:FSCalendarDefaultCellReuseIdentifier];
     [collectionView registerClass:[FSCalendarBlankCell class] forCellWithReuseIdentifier:FSCalendarBlankCellReuseIdentifier];
     [collectionView registerClass:[FSCalendarStickyHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];

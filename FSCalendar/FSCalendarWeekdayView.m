@@ -54,6 +54,8 @@
         [self.contentView addSubview:weekdayLabel];
         [_weekdayPointers addPointer:(__bridge void * _Nullable)(weekdayLabel)];
     }
+    
+    _labelBottomPadding = 0;
 }
 
 - (void)layoutSubviews
@@ -79,7 +81,7 @@
         CGFloat width = widths[i];
         NSInteger labelIndex = opposite ? count-1-i : i;
         UILabel *label = [self.weekdayPointers pointerAtIndex:labelIndex];
-        label.frame = CGRectMake(x, 0, width, self.contentView.fs_height);
+        label.frame = CGRectMake(x, 0, width, self.contentView.fs_height - _labelBottomPadding);
         x = CGRectGetMaxX(label.frame);
     }
     free(widths);
