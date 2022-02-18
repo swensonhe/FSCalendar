@@ -129,22 +129,16 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        [self initialize];
-    }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initialize];
-    }
     return self;
 }
 
-- (void)initialize
+- (void)initializeCalendarUI
 {   
     _appearance = [[FSCalendarAppearance alloc] init];
     _appearance.calendar = self;

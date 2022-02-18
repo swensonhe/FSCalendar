@@ -408,6 +408,11 @@ IB_DESIGNABLE
 @property (readonly, nonatomic) NSArray<NSDate *> *selectedDates;
 
 /**
+ Initializes calendar UI
+ */
+- (void)initializeCalendarUI;
+
+/**
  Reload the dates and appearance of the calendar.
  */
 - (void)reloadData;
