@@ -515,6 +515,8 @@ IB_DESIGNABLE
  */
 - (void)handleScopeGesture:(UIPanGestureRecognizer *)sender;
 
+- (void)setCalendarTo:(NSCalendar *)calendar;
+
 @end
 
 

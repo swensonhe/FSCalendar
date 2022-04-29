@@ -824,6 +824,20 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     }
 }
 
+- (void)setCalendarTo:(NSCalendar *)calendar
+{
+    _locale = calendar.locale;
+    _timeZone = calendar.timeZone;
+    _gregorian = calendar;
+    _formatter.calendar = calendar;
+    _formatter.timeZone = calendar.timeZone;
+    _formatter.locale = calendar.locale;
+    [self configureAppearance];
+    if (self.hasValidateVisibleLayout) {
+        [self invalidateHeaders];
+    }
+}
+
 - (void)setAllowsMultipleSelection:(BOOL)allowsMultipleSelection
 {
     _collectionView.allowsMultipleSelection = allowsMultipleSelection;
